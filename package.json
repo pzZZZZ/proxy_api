@@ -25,6 +25,7 @@
     "http-proxy": "^1.17.0",
     "http-proxy-middleware": "^0.19.1",
     "koa2-connect": "^1.0.2",
+    "koa2-cors": "^2.0.6",
     "nodemon": "^1.8.1"
   }
 }

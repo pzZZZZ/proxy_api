@@ -9,12 +9,25 @@ const proxy = require('http-proxy-middleware')
 const c2k = require('koa2-connect')
 const index = require('./routes/index')
 const users = require('./routes/users')
+const cors = require('koa2-cors');
 // error handler
 onerror(app)
 
 // middlewares
+app.use(cors({
+  origin: function (ctx) {
+    return "*"; // 允许来自所有域名请求
+
+  },
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  maxAge: 5,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'DELETE'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}))
+
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
