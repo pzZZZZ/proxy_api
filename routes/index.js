@@ -18,5 +18,6 @@ router.get('/json', async (ctx, next) => {
 })
 router.get('/api/getFirstData', c2k(proxy({ target: 'https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&start=0&count=100&client=somemessage&udid=dddddddddddddddddddddd', changeOrigin: true })))
 
+router.post('/api/getFirstData', c2k(proxy({ target: 'https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8C%97%E4%BA%AC&start=0&count=100&client=somemessage&udid=dddddddddddddddddddddd', changeOrigin: true })))
 
 module.exports = router
